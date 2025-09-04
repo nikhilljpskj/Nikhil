@@ -17,7 +17,7 @@ export const COMPANIES: Company[] = [
       'Led platform refactors and reliability initiatives; improved deployment flow and developer velocity.',
       'Built/maintained services, email systems, and infra pipelines across mixed Node/PHP/Python stack.'
     ],
-    logo: '/companies/harmen-botts.png',
+    logo: '/companies/harmen.png',
   },
   {
     name: 'FalkenRidge',
@@ -74,7 +74,7 @@ export const COMPANIES: Company[] = [
     bullets: [
       'Wrote test cases and flowcharts; reverse-engineered C# components from charts/diagrams.'
     ],
-    logo: '/companies/tata-elxsi.png',
+    logo: '/companies/elxsi.png',
   },
   {
     name: 'Abarna Colours',
@@ -85,7 +85,7 @@ export const COMPANIES: Company[] = [
     bullets: [
       'Contributed to full-stack features and integrations for line-of-business systems.'
     ],
-    logo: '/companies/abarna-colours.png',
+    logo: '/companies/abarna.png',
   },
   {
     name: 'Envestnet | Yodlee',
@@ -97,7 +97,7 @@ export const COMPANIES: Company[] = [
       'Reduced recurring issues by ~20% and improved resolution time by ~30% via targeted analysis & fixes.',
       'Drove stability and performance efforts across applications using Splunk and best-practice workflows.'
     ],
-    logo: '/companies/envestnet-yodlee.png',
+    logo: '/companies/Envestnet-Yodlee.png',
   },
   {
     name: 'Freelance',
@@ -114,6 +114,6 @@ export const COMPANIES: Company[] = [
     bullets: [
       'Delivered production apps and services; emphasis on reliability, performance, and maintainability.'
     ],
-    logo: '/companies/freelance.png',
+    logo: '/companies/operonx.png',
   },
 ];

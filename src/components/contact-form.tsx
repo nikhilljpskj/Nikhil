@@ -8,6 +8,7 @@ import emailjs from '@emailjs/browser';
 import { Button } from '@/components/ui/button';
 import { Copy, Mail, User, MessageSquare } from 'lucide-react';
 import { CONTACT } from '@/lib/constants';
+import { Linkedin, Github, Code2, SquareCode, type LucideIcon } from 'lucide-react';
 
 const EMAILJS = {
   serviceId: 'service_0gokyc9',
@@ -57,6 +58,35 @@ export default function ContactForm() {
     setNote('Copied!');
     setTimeout(() => setNote(''), 1500);
   };
+
+  const SocialLink = ({
+    href,
+    label,
+    Icon,
+  }: {
+    href: string;
+    label: string;
+    Icon: LucideIcon;
+  }) => (
+    <span className="rounded-2xl bg-gradient-to-r from-indigo-600/20 via-blue-600/20 to-sky-500/20 p-[1px]">
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={label}
+        title={label}
+        className="inline-flex items-center gap-2 rounded-2xl border border-white/60 bg-white/80
+                  p-2 md:px-3 md:py-1.5 text-sm text-slate-700 backdrop-blur
+                  transition hover:-translate-y-[1px] hover:shadow-[0_10px_30px_rgba(2,6,23,0.06)]"
+      >
+        {/* Icon scales: larger on mobile, slightly smaller on md+ */}
+        <Icon className="h-5 w-5 md:h-4 md:w-4" />
+        {/* Text hidden on mobile, visible from md+ */}
+        <span className="hidden md:inline">{label}</span>
+      </a>
+    </span>
+  );
+
 
   return (
     <div className="grid gap-8 md:grid-cols-2">
@@ -159,12 +189,13 @@ export default function ContactForm() {
 
         <div className="rounded-2xl border border-white/60 bg-white/80 p-6 backdrop-blur shadow-[0_10px_30px_rgba(2,6,23,0.06)]">
           <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">Social</div>
-          <ul className="mt-3 space-y-2 text-slate-700">
-            <li><a className="hover:underline" href={CONTACT.linkedin}>LinkedIn</a></li>
-            <li><a className="hover:underline" href={CONTACT.github}>GitHub</a></li>
-            <li><a className="hover:underline" href="https://www.hackerrank.com/profile/nikhiljp_skj">HackerRank</a></li>
-            <li><a className="hover:underline" href="https://leetcode.com/u/nikhiljp/">LeetCode</a></li>
-          </ul>
+          <div className="mt-3 flex flex-wrap items-center gap-2 md:gap-3">
+            <SocialLink href={CONTACT.linkedin} label="LinkedIn" Icon={Linkedin} />
+            <SocialLink href={CONTACT.github} label="GitHub" Icon={Github} />
+            <SocialLink href="https://www.hackerrank.com/profile/nikhiljp_skj" label="HackerRank" Icon={Code2} />
+            <SocialLink href="https://leetcode.com/u/nikhiljp/" label="LeetCode" Icon={SquareCode} />
+          </div>
+
         </div>
       </div>
     </div>

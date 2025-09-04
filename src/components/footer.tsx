@@ -1,18 +1,45 @@
 import Link from 'next/link';
 import { CONTACT, NAV_LINKS, SITE } from '@/lib/constants';
-import { Github, Linkedin, Mail, Phone, MapPin, Code2, SquareCode } from 'lucide-react';
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  Code2,
+  SquareCode,
+  type LucideIcon, // ✅ for icon typing
+} from 'lucide-react';
 
 export default function Footer() {
-  // split quick links into 2 columns, 4 max per column
+  // quick links split into 2 columns, max 4 each
   const leftLinks = NAV_LINKS.slice(0, 4);
   const rightLinks = NAV_LINKS.slice(4, 8);
 
-  const socials = [
-    { label: 'LinkedIn', href: CONTACT.linkedin, icon: Linkedin },
-    { label: 'GitHub', href: CONTACT.github, icon: Github },
-    { label: 'HackerRank', href: 'https://www.hackerrank.com/profile/nikhiljp_skj', icon: Code2 },
-    { label: 'LeetCode', href: 'https://leetcode.com/u/nikhiljp/', icon: SquareCode }
-  ] as const;
+  const socials: { label: string; href: string; Icon: LucideIcon }[] = [
+    { label: 'LinkedIn', href: CONTACT.linkedin, Icon: Linkedin },
+    { label: 'GitHub', href: CONTACT.github, Icon: Github },
+    { label: 'HackerRank', href: 'https://www.hackerrank.com/profile/nikhiljp_skj', Icon: Code2 },
+    { label: 'LeetCode', href: 'https://leetcode.com/u/nikhiljp/', Icon: SquareCode },
+  ];
+
+  const SocialChip = ({ href, label, Icon }: { href: string; label: string; Icon: LucideIcon }) => (
+    <span className="rounded-2xl bg-gradient-to-r from-indigo-600/20 via-blue-600/20 to-sky-500/20 p-[1px]">
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={label}
+        title={label}
+        className="inline-flex items-center gap-2 rounded-2xl border border-white/60 bg-white/80
+                   p-2 md:px-3 md:py-1.5 text-sm text-slate-700 backdrop-blur
+                   transition hover:-translate-y-[1px] hover:shadow-[0_10px_30px_rgba(2,6,23,0.06)]"
+      >
+        <Icon className="h-5 w-5 md:h-4 md:w-4" />
+        <span className="hidden md:inline">{label}</span>
+      </a>
+    </span>
+  );
 
   return (
     <footer className="mt-24 border-t border-white/60 bg-white/70 backdrop-blur">
@@ -21,7 +48,7 @@ export default function Footer() {
           {/* Brand & summary */}
           <div className="md:col-span-5">
             <div className="text-xl font-semibold tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-blue-600 to-sky-500">
+              <span className="bg-gradient-to-r from-indigo-600 via-blue-600 to-sky-500 bg-clip-text text-transparent">
                 {SITE.name}
               </span>
             </div>
@@ -29,21 +56,10 @@ export default function Footer() {
               {SITE.description}
             </p>
 
-            {/* Socials */}
-            <div className="mt-6 flex flex-wrap gap-2">
+            {/* Socials — icons only on mobile */}
+            <div className="mt-6 flex flex-wrap items-center gap-2 md:gap-3">
               {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={s.label}
-                  title={s.label}
-                  className="inline-flex items-center gap-2 rounded-2xl border border-white/60 bg-white/80 px-3 py-1.5 text-sm text-slate-700 backdrop-blur transition hover:-translate-y-[1px] hover:shadow-[0_10px_30px_rgba(2,6,23,0.06)]"
-                >
-                  <s.icon size={16} />
-                  {s.label}
-                </a>
+                <SocialChip key={s.label} href={s.href} label={s.label} Icon={s.Icon} />
               ))}
             </div>
           </div>
@@ -57,10 +73,7 @@ export default function Footer() {
               <ul className="space-y-2 text-[15px] leading-6">
                 {leftLinks.map((l) => (
                   <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      className="text-slate-700 hover:text-slate-950 transition"
-                    >
+                    <Link href={l.href} className="text-slate-700 transition hover:text-slate-950">
                       {l.label}
                     </Link>
                   </li>
@@ -69,10 +82,7 @@ export default function Footer() {
               <ul className="space-y-2 text-[15px] leading-6">
                 {rightLinks.map((l) => (
                   <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      className="text-slate-700 hover:text-slate-950 transition"
-                    >
+                    <Link href={l.href} className="text-slate-700 transition hover:text-slate-950">
                       {l.label}
                     </Link>
                   </li>
@@ -88,24 +98,18 @@ export default function Footer() {
             </div>
             <div className="mt-3 space-y-3 text-[15px] leading-6 text-slate-700">
               <div className="flex items-start gap-2">
-                <MapPin size={16} className="mt-1 text-slate-500" />
+                <MapPin className="mt-1 h-4 w-4 text-slate-500" />
                 <span className="tracking-normal">{CONTACT.location}</span>
               </div>
               <div className="flex items-start gap-2">
-                <Mail size={16} className="mt-1 text-slate-500" />
-                <a
-                  href={`mailto:${CONTACT.email}`}
-                  className="hover:underline underline-offset-2"
-                >
+                <Mail className="mt-1 h-4 w-4 text-slate-500" />
+                <a href={`mailto:${CONTACT.email}`} className="underline-offset-2 hover:underline">
                   {CONTACT.email}
                 </a>
               </div>
               <div className="flex items-start gap-2">
-                <Phone size={16} className="mt-1 text-slate-500" />
-                <a
-                  href={`tel:${CONTACT.phone}`}
-                  className="hover:underline underline-offset-2"
-                >
+                <Phone className="mt-1 h-4 w-4 text-slate-500" />
+                <a href={`tel:${CONTACT.phone}`} className="underline-offset-2 hover:underline">
                   {CONTACT.phone}
                 </a>
               </div>
@@ -117,16 +121,14 @@ export default function Footer() {
         <div className="mt-10 border-t border-white/60" />
 
         {/* Bottom line */}
-        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between pt-6 text-xs text-slate-500 tracking-normal">
-          <div>
-            © {new Date().getFullYear()} {SITE.name}. All rights reserved.
-          </div>
-          <div className="flex flex-wrap gap-x-4 gap-y-2">
-            <span>Pathanamthitta, Kerala</span>
+        <div className="pt-6 text-xs tracking-normal text-slate-500 md:flex md.items-center md:justify-between">
+          <div>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</div>
+          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 md:mt-0">
+            <span>{CONTACT.location}</span>
             <span className="hidden md:inline">•</span>
-            <a href="/privacy" className="hover:text-slate-700">Privacy</a>
+            <Link className="hover:text-slate-700" href="/">Privacy</Link>
             <span className="hidden md:inline">•</span>
-            <a href="/terms" className="hover:text-slate-700">Terms</a>
+            <Link className="hover:text-slate-700" href="/">Terms</Link>
           </div>
         </div>
       </div>

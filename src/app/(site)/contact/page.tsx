@@ -86,10 +86,17 @@ export default function ContactPage() {
       rel="noreferrer"
       aria-label={label}
       title={label}
-      className="inline-flex items-center gap-2 rounded-2xl border border-white/60 bg-white/80 px-3 py-1.5 text-sm text-slate-700 backdrop-blur transition hover:-translate-y-[1px] hover:shadow-[0_10px_30px_rgba(2,6,23,0.06)]"
+      className="
+        inline-flex items-center gap-2 rounded-2xl border border-white/60 bg-white/80
+        p-2 md:px-3 md:py-1.5 text-sm text-slate-700 backdrop-blur
+        transition hover:-translate-y-[1px] hover:shadow-[0_10px_30px_rgba(2,6,23,0.06)]
+      "
     >
-      <Icon size={16} />
-      {label}
+      {/* Bigger icon on mobile; slightly smaller on md+ */}
+      <Icon className="h-5 w-5 md:h-4 md:w-4" />
+
+      {/* Hide the text label on mobile, show from md+ */}
+      <span className="hidden md:inline">{label}</span>
     </a>
   );
 
@@ -97,7 +104,7 @@ export default function ContactPage() {
     <Container>
       <Section
         title="Contact"
-        description="Send a message and I’ll get back quickly. The form uses EmailJS — no server required."
+        description="Send a message and I’ll get back quickly."
       >
         <div className="grid gap-10 md:grid-cols-2">
           {/* Form */}
