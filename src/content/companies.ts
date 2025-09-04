@@ -29,7 +29,7 @@ export const COMPANIES: Company[] = [
       'Led team enablement & training; standardized stack and shipping practices.',
       'Oversaw CI/CD and performance improvements across services.'
     ],
-    logo: '/companies/falkenridge.png',
+    logo: '/companies/FalkenRidge.png',
   },
   {
     name: 'Adbullet',
@@ -63,7 +63,7 @@ export const COMPANIES: Company[] = [
     bullets: [
       'Built custom libraries and features across mixed JS/Python/PHP stack.'
     ],
-    logo: '/companies/redeemer.png',
+    logo: '/companies/Redeemer.png',
   },
   {
     name: 'Tata Elxsi',
