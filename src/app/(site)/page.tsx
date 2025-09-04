@@ -48,67 +48,77 @@ export default function HomePage() {
 
             {/* ↓ Buttons + Social chips directly below the ticker */}
             <div className="mt-6 flex flex-col items-start gap-5">
-              {/* Row 1: social chips */}
-              <div className="w-full">
-                      <span className="rounded-2xl bg-gradient-to-r from-indigo-600/20 via-blue-600/20 to-sky-500/20 p-[1px]">
-                          <a
-                          href="/cv/Nikhil_Prakash.pdf"
-                          className="inline-flex items-center gap-1.5 rounded-2xl border border-white/60 bg-white/85 px-3 py-1.5 text-slate-700 backdrop-blur transition
-                                      hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(2,6,23,0.08)]"
-                          aria-label="Download CV"
-                          >
-                          <FileDown size={14} className="text-slate-600" />
-                          <span>CV</span>
-                          </a>
-                      </span>
+              {/* Row 1: social chips (icons only on mobile, icons+text on md+) */}
+              <div className="w-full flex flex-wrap items-center gap-2 md:gap-3">
+                {/* CV */}
+                <span className="rounded-2xl bg-gradient-to-r from-indigo-600/20 via-blue-600/20 to-sky-500/20 p-[1px]">
+                  <a
+                    href="/cv/Nikhil_Prakash.pdf"
+                    aria-label="Download CV"
+                    className="inline-flex items-center gap-1.5 rounded-2xl border border-white/60 bg-white/85
+                              px-2.5 py-2 md:px-3 md:py-1.5 text-slate-700 backdrop-blur transition
+                              hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(2,6,23,0.08)]"
+                  >
+                    <FileDown className="h-5 w-5 md:h-4 md:w-4 text-slate-600" />
+                    <span className="hidden md:inline">CV</span>
+                  </a>
+                </span>
 
-                      <span className="rounded-2xl bg-gradient-to-r from-indigo-600/20 via-blue-600/20 to-sky-500/20 p-[1px]">
-                          <a
-                          href={CONTACT.linkedin}
-                          className="inline-flex items-center gap-1.5 rounded-2xl border border-white/60 bg-white/85 px-3 py-1.5 text-slate-700 backdrop-blur transition
-                                      hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(2,6,23,0.08)]"
-                          aria-label="LinkedIn"
-                          >
-                          <Linkedin size={14} className="text-slate-600" />
-                          <span>LinkedIn</span>
-                          </a>
-                      </span>
+                {/* LinkedIn */}
+                <span className="rounded-2xl bg-gradient-to-r from-indigo-600/20 via-blue-600/20 to-sky-500/20 p-[1px]">
+                  <a
+                    href={CONTACT.linkedin}
+                    aria-label="LinkedIn"
+                    className="inline-flex items-center gap-1.5 rounded-2xl border border-white/60 bg-white/85
+                              px-2.5 py-2 md:px-3 md:py-1.5 text-slate-700 backdrop-blur transition
+                              hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(2,6,23,0.08)]"
+                  >
+                    <Linkedin className="h-5 w-5 md:h-4 md:w-4 text-slate-600" />
+                    <span className="hidden md:inline">LinkedIn</span>
+                  </a>
+                </span>
 
-                      <span className="rounded-2xl bg-gradient-to-r from-indigo-600/20 via-blue-600/20 to-sky-500/20 p-[1px]">
-                          <a
-                          href={CONTACT.github}
-                          className="inline-flex items-center gap-1.5 rounded-2xl border border-white/60 bg-white/85 px-3 py-1.5 text-slate-700 backdrop-blur transition
-                                      hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(2,6,23,0.08)]"
-                          aria-label="GitHub"
-                          >
-                          <Github size={14} className="text-slate-600" />
-                          <span>GitHub</span>
-                          </a>
-                      </span>
+                {/* GitHub */}
+                <span className="rounded-2xl bg-gradient-to-r from-indigo-600/20 via-blue-600/20 to-sky-500/20 p-[1px]">
+                  <a
+                    href={CONTACT.github}
+                    aria-label="GitHub"
+                    className="inline-flex items-center gap-1.5 rounded-2xl border border-white/60 bg-white/85
+                              px-2.5 py-2 md:px-3 md:py-1.5 text-slate-700 backdrop-blur transition
+                              hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(2,6,23,0.08)]"
+                  >
+                    <Github className="h-5 w-5 md:h-4 md:w-4 text-slate-600" />
+                    <span className="hidden md:inline">GitHub</span>
+                  </a>
+                </span>
 
-                      <span className="rounded-2xl bg-gradient-to-r from-indigo-600/20 via-blue-600/20 to-sky-500/20 p-[1px]">
-                          <a
-                          href={`mailto:${CONTACT.email}`}
-                          className="inline-flex items-center gap-1.5 rounded-2xl border border-white/60 bg-white/85 px-3 py-1.5 text-slate-700 backdrop-blur transition
-                                      hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(2,6,23,0.08)]"
-                          aria-label="Email"
-                          >
-                          <Mail size={14} className="text-slate-600" />
-                          <span>Email</span>
-                          </a>
-                      </span>
+                {/* Email */}
+                <span className="rounded-2xl bg-gradient-to-r from-indigo-600/20 via-blue-600/20 to-sky-500/20 p-[1px]">
+                  <a
+                    href={`mailto:${CONTACT.email}`}
+                    aria-label="Email"
+                    className="inline-flex items-center gap-1.5 rounded-2xl border border-white/60 bg-white/85
+                              px-2.5 py-2 md:px-3 md:py-1.5 text-slate-700 backdrop-blur transition
+                              hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(2,6,23,0.08)]"
+                  >
+                    <Mail className="h-5 w-5 md:h-4 md:w-4 text-slate-600" />
+                    <span className="hidden md:inline">Email</span>
+                  </a>
+                </span>
 
-                      <span className="rounded-2xl bg-gradient-to-r from-indigo-600/20 via-blue-600/20 to-sky-500/20 p-[1px]">
-                          <a
-                          href={`tel:${CONTACT.phone}`}
-                          className="inline-flex items-center gap-1.5 rounded-2xl border border-white/60 bg-white/85 px-3 py-1.5 text-slate-700 backdrop-blur transition
-                                      hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(2,6,23,0.08)]"
-                          aria-label="Phone"
-                          >
-                          <Phone size={14} className="text-slate-600" />
-                          <span>Mobile</span>
-                          </a>
-                      </span>
+                {/* Phone */}
+                <span className="rounded-2xl bg-gradient-to-r from-indigo-600/20 via-blue-600/20 to-sky-500/20 p-[1px]">
+                  <a
+                    href={`tel:${CONTACT.phone}`}
+                    aria-label="Phone"
+                    className="inline-flex items-center gap-1.5 rounded-2xl border border-white/60 bg-white/85
+                              px-2.5 py-2 md:px-3 md:py-1.5 text-slate-700 backdrop-blur transition
+                              hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(2,6,23,0.08)]"
+                  >
+                    <Phone className="h-5 w-5 md:h-4 md:w-4 text-slate-600" />
+                    <span className="hidden md:inline">Mobile</span>
+                  </a>
+                </span>
               </div>
 
               {/* Row 2: buttons */}
@@ -121,6 +131,7 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
+
 
           </>
         }
