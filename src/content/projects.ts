@@ -13,6 +13,16 @@ export const PROJECTS: Project[] = [
     image: '/projects/mobiforce.png',
   },
   {
+    title: 'Kerala Congress (J)',
+    description:
+      'Official party website with membership registration and people management modules. PHP stack for simplicity and fast publishing.',
+    tech: ['PHP', 'HTML', 'Tailwind'],
+    tag: 'Web',
+    href: 'https://kerala-congress.vercel.app/',
+    repo: 'https://github.com/nikhilljpskj/Kerala-Congress',
+    image: '/projects/kc.png',
+  },
+  {
     title: 'Sales Tracker',
     description:
       'Integrated field-sales tracking with live location capture and ERP updates. Lightweight PHP+HTML stack for rapid deployment and easy maintenance.',
@@ -79,16 +89,6 @@ export const PROJECTS: Project[] = [
     href: 'https://cm-hospital.vercel.app/',
     repo: 'https://github.com/nikhilljpskj/CM-Hospital',
     image: '/projects/cm.png',
-  },
-  {
-    title: 'Kerala Congress (J)',
-    description:
-      'Official party website with membership registration and people management modules. PHP stack for simplicity and fast publishing.',
-    tech: ['PHP', 'HTML', 'Tailwind'],
-    tag: 'Web',
-    href: 'https://kerala-congress.vercel.app/',
-    repo: 'https://github.com/nikhilljpskj/Kerala-Congress',
-    image: '/projects/kc.png',
   },
   {
     title: 'PortfoMeister',
