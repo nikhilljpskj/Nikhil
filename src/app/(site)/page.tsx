@@ -157,7 +157,7 @@ export default function HomePage() {
       <Section
         eyebrow="Trusted by"
         title="Companies & teams"
-        description="Grayscale by default; hover to reveal subtle color."
+        description="A selection of organisations where I’ve gained experience and contributed—across product builds, platform engineering, and reliability."
       >
         <div className="rounded-2xl border border-white/60 bg-white/70 p-4 backdrop-blur shadow-[0_10px_30px_rgba(2,6,23,0.06)]">
           <CompanyMarquee items={CLIENTS} itemsPerView={6} speed={26} gap={28} />
