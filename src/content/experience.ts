@@ -9,20 +9,20 @@ export const EXPERIENCE: TimelineItem[] = [
   {
     role: 'Senior SDE',
     company: 'Harmen & Botts (Neuilly-sur-Seine, France)',
-    period: 'Apr 2024 – Present',
+    period: 'Apr 2025 – Present',
     bullets: [
       'Platform maintenance & migrations (React/Node/Laravel/Django).',
       'Email systems (SES, SendGrid, Twilio), CI/CD, and reliability.'
     ],
   },
-  {
-    role: 'Head of Engineering & Training (Part-time)',
-    company: 'FalkenRidge',
-    period: 'Jun 2024 – Present',
-    bullets: [
-      'Team enablement, CI/CD, and performance standards across services.'
-    ],
-  },
+  // {
+  //   role: 'Head of Engineering & Training (Part-time)',
+  //   company: 'FalkenRidge',
+  //   period: 'Jun 2024 – Present',
+  //   bullets: [
+  //     'Team enablement, CI/CD, and performance standards across services.'
+  //   ],
+  // },
   {
     role: 'Full-Stack Developer (Part-time)',
     company: 'Adbullet (Delhi)',
